@@ -30,7 +30,6 @@
                     <img class="d-block carousel-picture m-auto"
                          src="{{ url_for('static', filename="pictures/albums/"+album.photo) }}">
                     <label for="photo" class="year">Зображення</label>
-                    <p>{{url_for('static', filename="pictures/albums/"+album.photo )}}</p>
                     <input type="file" name="photo" id="photo" class="form-control-file col-md-10"
                            value= "{{ url_for('static', filename="pictures/albums/"+album.photo ) }}">
                 </div>
