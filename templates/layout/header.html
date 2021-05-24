@@ -27,8 +27,8 @@
                 <span class="text-light mx-2">Welcome, {{ current_user.username }}</span>
                 <a href="{{ url_for('site_logout') }}" class="btn btn-outline-primary my-2 my-sm-0">Log-Out</a>
             {% else %}
-                <a href="{{ url_for('site_login') }}" class="btn btn-outline-primary my-2 my-sm-0">Log-In</a>
-                <a href="{{ url_for('site_register') }}" class="btn btn-outline-primary my-2 my-sm-0">Re</a>
+                <a href="{{ url_for('site_login') }}" class="btn btn-outline-primary my-2 my-sm-0 mx-0 mx-sm-1">Log-In</a>
+                <a href="{{ url_for('site_register') }}" class="btn btn-outline-primary my-2 my-sm-0">Register</a>
 
             {% endif %}
         </div>
