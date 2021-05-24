@@ -1,0 +1,21 @@
+header img {
+    height: 40px;
+}
+header {
+    font-size: 18px;
+}
+main {
+    margin-bottom: 80px;
+}
+
+.carousel-container{
+    margin-top: 20px;
+}
+
+.carousel-container img{
+    opacity: 0.5;
+    border-radius: 20px;
+}
+.carousel-control-next, .carousel-control-prev {
+    font-size: 60px;
+}

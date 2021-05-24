@@ -1,0 +1,41 @@
+{% extends 'layout/layout.html' %}
+
+{% block Title %} | Форма логіну{% endblock %}
+{% block Main %}
+    {% for category, message in  get_flashed_messages(with_categories=true) %}
+	<div class="{{ category }} text-center alert alert-danger my-3" role="alert">{{ message }}</div>
+    {% endfor %}
+
+    <form action="" method="post" class="shit-form my-3 p-5">
+	{{ form.csrf_token }}
+	<div class="form-group row">
+	    {{ form.username.label(class_='col-sm-3 text-right col-form-label') }}
+        <div class="col-sm-9">
+	        {{ form.username(class_='form-control') }}
+        </div>
+	    {% if form.username.errors %}
+            {% for error in form.username.errors %}
+                {{ error }}
+            {% endfor %}
+	    {% endif %}
+	</div>
+	<div class="form-group row">
+	    {{ form.password.label(class_='col-sm-3 text-right col-form-label') }}
+        <div class="col-sm-9">
+	        {{ form.password(class_='form-control') }}
+        </div>
+	    {% if form.password.errors %}
+		{% for error in form.password.errors %}
+		    {{ error }}
+		{% endfor %}
+	    {% endif %}
+	</div>
+	<p>
+	    {{ form.remember.label }}
+	    {{ form.remember() }}
+	</p>
+	<p>
+	    {{ form.submit() }}
+	</p>
+    </form>
+{% endblock %}

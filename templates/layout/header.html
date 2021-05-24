@@ -1,0 +1,36 @@
+<header class="sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ url_for('site_index') }}">
+            <img src="{{ url_for('static', filename='pictures/Queen.png') }}" alt="Queen">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                {% set url = url_for('site_about_project') %}
+                <li class="nav-item {{ 'active' if request.path == url }}">
+                    <a class="nav-link" href="{{ url }}">Про проект</a>
+                </li>
+                {% set url = url_for('site_history') %}
+                <li class="nav-item {{ 'active' if request.path == url }}">
+                    <a class="nav-link" href="{{ url }}">Історія групи</a>
+                </li>
+                {% set url = url_for('albums_index') %}
+                <li class="nav-item {{ 'active' if request.path == url }}">
+                    <a class="nav-link" href="{{ url }}">Альбоми</a>
+                </li>
+            </ul>
+            {% if current_user.is_authenticated %}
+                <span class="text-light mx-2">Welcome, {{ current_user.username }}</span>
+                <a href="{{ url_for('site_logout') }}" class="btn btn-outline-primary my-2 my-sm-0">Log-Out</a>
+            {% else %}
+                <a href="{{ url_for('site_login') }}" class="btn btn-outline-primary my-2 my-sm-0">Log-In</a>
+                <a href="{{ url_for('site_register') }}" class="btn btn-outline-primary my-2 my-sm-0">Re</a>
+
+            {% endif %}
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,9 @@
+{% extends 'layout/layout.html' %}
+
+{% block Main %}
+<ul>
+{% for i in range(10) %}
+    <li>{{ i + 1 }}</li>
+{% endfor %}
+</ul>
+{% endblock %}

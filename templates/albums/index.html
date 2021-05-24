@@ -1,0 +1,38 @@
+{% extends 'layout/layout.html' %}
+
+{% block Title %} | Список альбомів {% endblock %}
+{% block Main %}
+    {% if albums|length > 0 %}
+    <a href="{{ url_for('album_create') }}" class="btn btn-primary my-3">Створити новий запис альбому</a>
+    <div id="carouselExampleIndicators" class="carousel slide carousel-container" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for album in albums %}
+                <div class="carousel-item {% if loop.index == 1 %}active{% endif %}">
+                    <img class="d-block carousel-picture m-auto" src="{{ url_for('static', filename="pictures/albums/"+album.photo) }}"
+                         alt="Album Picture">
+                    <a href="{{ url_for('albums_view', id=album.id) }}">
+                        <div class="carousel-caption d-none d-md-block text-dark">
+                            <h3 >{{ album.title }}</h3>
+                            <p>{{ album.short_text }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="font-weight-bold text-dark" aria-hidden="true"><</span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="font-weight-bold text-dark" aria-hidden="true">></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    {% else %}
+    <div class="m-auto text-center">
+        <h2>На даний момент немає збережених альбомів</h2>
+        <p>Не хочете додати новий запис альбому в систему?</p>
+        <a href="{{ url_for('album_create') }}" class="btn btn-primary my-3">Створити новий запис альбому</a>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'layout/layout.html' %}
+
+{% block Title %} | Альбом{% endblock %}
+{% block Main %}
+    <div class="card mb-3" >
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="{{ url_for('static', filename="pictures/albums/"+album.photo) }}" alt="Album_Picture">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h4 class="card-title text-center">Назва альбому</h4>
+                    <h5 class="text-center">{{ album.title }}</h5>
+                    <p class="card-text">Опис альбому: <br/>{{ album.text }}</p>
+                    <p class="card-text"><small class="text-muted">Рік створення: <br/>{{ album.year }}</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
