@@ -18,8 +18,8 @@ ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SECRET_KEY'] = 'a really really really really long secret key'
-# app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///albums.db"
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://biosmlzpykmiun:b101919c25bef99a12483d0a79a77f0fc13c1a0ddf445c2641bc54b92a13b922@ec2-54-220-170-192.eu-west-1.compute.amazonaws.com:5432/d2dtcdb1cfq2ev"
+app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///albums.db"
+# app.config['SQLALCHEMY_DATABASE_URI'] = "postgres://biosmlzpykmiun:b101919c25bef99a12483d0a79a77f0fc13c1a0ddf445c2641bc54b92a13b922@ec2-54-220-170-192.eu-west-1.compute.amazonaws.com:5432/d2dtcdb1cfq2ev"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
