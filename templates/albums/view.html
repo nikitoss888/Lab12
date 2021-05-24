@@ -17,4 +17,8 @@
             </div>
         </div>
     </div>
+    <div class="d-flex justify-content-md-around justify-content-center">
+        <a href="{{ url_for('album_edit', id=album.id) }}" class="btn btn-primary">Редагувати</a>
+        <a href="{{ url_for('albums_delete', id=album.id) }}" class="btn btn-danger">Видалити</a>
+    </div>
 {% endblock %}
