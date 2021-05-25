@@ -195,13 +195,13 @@ def albums_redirect():
 
 
 @app.route('/albums/index')
-@login_required
 def albums_index():
     albums = Albums.query.order_by('title').all()
     return render_template('albums/index.html', albums=albums)
 
 
 @app.route('/albums/create', methods=['POST', 'GET'])
+@login_required
 def album_create():
     if request.method == 'POST':
         title = request.form['title']
